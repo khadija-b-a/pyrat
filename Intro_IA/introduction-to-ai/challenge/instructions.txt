@@ -1,0 +1,42 @@
+Hello everyone!
+
+You'll find below the detailed instructions for the final challenge of the Introduction to AI course.
+
+Your task is to develop an AI that plays PyRat and beats as much as possible your opponent.
+Your opponent plays using a deterministic strategy: a greedy algorithm, always targetting the closest piece of cheese as the next target. The distance to pieces of cheese is calculated using Manhattan Distance (= L1 distance).
+
+In this challenge, the maze is dimensioned as follows:
+- Its dimensions are 7 by 5,
+- It contains 10 pieces of cheeses,
+- It does not contain mud,
+- It does not contain walls (except on the edges, delimiting the maze).
+
+Your AI can be developed following various methodologies, such as those discussed in the Reinforcement and supervised Learning labs, or in the Combinatorial Game Theory (CGT) class. Of course, if you're feeling particularly inventive, you're more than welcome to integrate any other ideas or strategies you believe could enhance your AI's performance.
+
+In the context of the challenge:
+- The preprocessing time is set to 3 seconds,
+- The turn time is set to 0.1 seconds.
+It means that your preprocessing function must run in no longer than 3 seconds, and each turn must run in no longer than 0.1 seconds. Use this time to perform as many operations as required.
+
+To guide you through this challenge, you will find a challenge folder in the git of the class. This folder contains several files:
+- challenge.py: a script that simulates several games against a greedy algorithm, and returns statistics on the games,
+- your_AI.py: a template with the important functions to define for a PyRat strategy. You can use your own file if you want! You are not compelled to use this template, it is included here as a helper,
+- utils.py: a PyRat helper, containing useful functions for manipulating the maze,
+- greedy.py: the greedy algorithm (you should NOT modify this file).
+
+You must submit your AI before the date announced on discord. Your submission must include functional code that runs successfully on the first launch: we aim to assess not only the strategic prowess of your AI but also the quality and reliability of your coding practices. In that context, please try to run your code in a clean environment before submitting it, to ensure that all the required code is present.
+You have to submit an AI and all necessary files for the code to run. For instance, it is not necessary to submit the utils.py file if you don't modify it, but, you should submit the checkpoints of your trained algorithm if you develop a Supervised or a Reinforcement Learning algorithm (note: also check that the path to the checkpoint is correct, and will work on our machine).
+
+Best of luck, and may your AI prove to be a formidable contender in the maze!
+
+# Troubleshooting
+## My code is really long, why?
+- If you use a Mac or a Windows machine, you should NOT set the game mode to "synchronous". Either set it to default (removing the argument) or to "sequential". It should accelerate the code.
+- If you're on a Linux, or if the previous fix didn't work, try to reduce the size of the maze and the number of cheeses, to reduce complexity. Then, see if your machine is powerful enough to run the challenge.
+- If the previous fixes didn't work, send us a message on Discord.
+
+## My Reinforcement Learning algorithm seems to move at random, why?
+- See if your code loads the checkpoints obtained with the training. Otherwise, your code may run a freshly and randomly initialized model. It may be due to a path error, or to the fact that the TRAIN parameter is still set to True.
+
+## I got the following error: 'File "<some_path>/RL.py", line 616, in <module>; wandb.login(key=open(WANDB_KEY_PATH).read().strip(), force=True): FileNotFoundError: [Errno 2] No such file or directory: "<some_path>/wandb.key"'
+- Either set the USE_WANDB parameter to False or set up an account to WANDB. This fix is presented in the introductory comment of the RL.py file.
